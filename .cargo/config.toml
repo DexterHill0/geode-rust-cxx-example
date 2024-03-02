@@ -1,0 +1,4 @@
+# This is a very important file !!
+
+[build]
+target = "i686-pc-windows-msvc"
