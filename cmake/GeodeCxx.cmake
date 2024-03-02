@@ -71,10 +71,6 @@ function(setup_geode_cxx)
         ${GXX_GEODE_PROJ_NAME}
         PUBLIC
         ${TARGET_DIR_WITH_TARGET_TRIPLE}/cxxbridge/${GXX_RUST_CRATE_NAME}/src/
-        ${TARGET_DIR_WITH_TARGET_TRIPLE}/cxxbridge
-        # cxx will reference "rust_lib" as the root for the include so
-        # we need to include the parent in order for it to resolve
-        ${CMAKE_SOURCE_DIR}/../
     )
 
     set_target_properties(

@@ -14,7 +14,7 @@ mod ffi {
     }
 
     unsafe extern "C++" {
-        include!("rust_lib/include/main.h");
+        include!("main.h");
 
         fn cpp_get_shared() -> SharedStruct;
     }

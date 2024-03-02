@@ -2,7 +2,7 @@
 #include <Geode/modify/MenuLayer.hpp>
 #include <Geode/Geode.hpp>
 
-#include <rust_lib/src/lib.rs.h>
+#include "lib.rs.h"
 
 using namespace geode::prelude;
 

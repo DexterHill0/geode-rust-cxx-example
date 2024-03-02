@@ -19,6 +19,10 @@ include(../cmake/GeodeCxx.cmake)
 # RUSTC_TARGET_TRIPLE must match `.cargo/config.toml` 
 setup_geode_cxx(GEODE_PROJ_NAME ${GEODE_PROJECT_NAME} RUST_CRATE_DIR ${CMAKE_SOURCE_DIR} RUST_CRATE_NAME ${RUST_CRATE_NAME} RUSTC_TARGET_TRIPLE "i686-pc-windows-msvc")
 
+# since our main.h is defined in include/ we add the root folder
+# !! change this include to wherever you decide to put the headers !!
+target_include_directories(${GEODE_PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR}/geode_mod/src)
+
 if (NOT DEFINED ENV{GEODE_SDK})
     message(FATAL_ERROR "Unable to find Geode SDK! Please define GEODE_SDK environment variable to point to Geode")
 else()

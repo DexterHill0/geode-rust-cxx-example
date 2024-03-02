@@ -34,13 +34,6 @@ NOTE:
     ```
     Subsequent builds should then compile without issue.
 
-# !! Very Important Notes !!
-
-There are a few things worthy of note in this project, that if not followed will probably cause an error.
-
--   You must make sure to have a `.cargo/config.toml` file that sets the build target to `i686-pc-windows-msvc`
--   The `geode-rust-cxx-example` folder, or your equivalently named folder, **_MUST_** be inside of its own folder as CMake will use the parent of `geode-rust-cxx-example` to resolve certain includes. This is probably not actually super important but it's seems recommended to _not_ have CMake resolve includes inside the folder that houses all your projects, or whatever this repo is contained within.
-
 ## Configuration
 
 -   Inside the root `CMakeLists.txt` are two variables: `GEODE_PROJECT_NAME` and `RUST_CRATE_NAME`. These are pretty self explanatory but make sure to change them to whatever you name the folders.
