@@ -11,7 +11,8 @@ Before this project will build, there are a few things required.
 NOTE:
 
 -   This project has only been tested on windows so for the time being the prerequisites only target windows.
--   It has also only been tested for **MSVC**. Pull requests for supporting other compilers are welcome.
+
+It compiles with both MSVC and Clang (tested on Clang 17.0.1).
 
 ### Windows
 
@@ -38,10 +39,11 @@ NOTE:
 
 -   Inside the root `CMakeLists.txt` are two variables: `GEODE_PROJECT_NAME` and `RUST_CRATE_NAME`. These are pretty self explanatory but make sure to change them to whatever you name the folders.
 -   Don't forget to update the neccessary information in the `mod.json`, `about.md` and other files, for your geode mod.
+-   **If you plan to change the folder structure, don't forget to change everywhere that would be affected, especially the call to `setup_geode_cxx`**
 
 ## Potential issues
 
-### `Mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in cmake_pch.obj`
+### `Mismatch detected for 'RuntimeLibrary': value 'MDd_DynamicDebug' doesn't match value 'MD_DynamicRelease' in cmake_pch.obj` / `lld-link: error: /failifmismatch: mismatch detected for 'RuntimeLibrary':`
 
 This means you haven't selected `RelWithDebInfo` as the build variant for the Geode mod.
 

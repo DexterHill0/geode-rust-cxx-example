@@ -61,7 +61,7 @@ function(setup_geode_cxx)
     
     add_custom_command(
         OUTPUT ${RUST_BRIDGE_CPP} ${RUST_LIB}
-        COMMAND ${GXX_CARGO_BIN} build --profile ${RUST_PROFILE} --manifest-path ${GXX_CARGO_MANIFEST}
+        COMMAND ${GXX_CARGO_BIN} build --profile ${RUST_PROFILE} --target ${GXX_RUSTC_TARGET_TRIPLE} --manifest-path ${GXX_CARGO_MANIFEST}
         DEPENDS ${RUST_SOURCE_FILE}
         USES_TERMINAL
         COMMENT "Building ${GXX_RUST_CRATE_NAME}..."
@@ -78,7 +78,7 @@ function(setup_geode_cxx)
         PROPERTIES ADDITIONAL_CLEAN_FILES ${TARGET_DIR_WITH_TARGET_TRIPLE}
     )
 
-    include(${CMAKE_SOURCE_DIR}/cmake/NativeStaticLibs.cmake)
+    include(${CMAKE_CURRENT_FUNCTION_LIST_DIR}/NativeStaticLibs.cmake)
 
     unset(REQUIRED_NATIVE_LIBS)
     _get_native_static_libs(${GXX_RUSTC_TARGET_TRIPLE} ${RUST_PROFILE} ${GXX_CARGO_BIN} REQUIRED_NATIVE_LIBS)
